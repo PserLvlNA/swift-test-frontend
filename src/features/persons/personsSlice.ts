@@ -43,6 +43,9 @@ export const personSlice = createSlice({
     setPhoneNumber: (state, action: PayloadAction<string>) => {
       state.phone_number = action.payload;
     },
+    setPassportId: (state, action: PayloadAction<string>) => {
+      state.passport_id = action.payload;
+    },
     setExpectedSalary: (state, action: PayloadAction<number>) => {
       state.expected_salary = action.payload;
     },
@@ -59,6 +62,7 @@ export const {
   setnationalId,
   setGender,
   setPhoneNumber,
+  setPassportId,
   setExpectedSalary,
 } = personSlice.actions;
 
