@@ -1,0 +1,12 @@
+{
+    "Welcome to React": "Welcome to React and react-i18next",
+    "test_1": "Test 1",
+    "test_2": "Test 2",
+    "test_3": "Test 3",
+    "layout_and_style_title": "Layout & Style",
+    "api_title": "Connect API",
+    "form_table_title": "Form & Table",
+    "main_page": "Main Page",
+    "move_shape": "Move Shape",
+    "move_position": "Move Position"
+}

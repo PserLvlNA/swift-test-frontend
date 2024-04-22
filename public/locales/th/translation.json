@@ -1,0 +1,12 @@
+{
+    "Welcome to React": "ยินดีต้อนรับสู่ React",
+    "test_1": "แบบทดสอบที่ 1",
+    "test_2": "แบบทดสอบที่ 2",
+    "test_3": "แบบทดสอบที่ 3",
+    "layout_and_style_title": "การจัดการหน้าเว็บ",
+    "api_title": "การเชื่อมต่อ API",
+    "form_table_title": "การจัดการหน้าฟอร์ม",
+    "main_page": "หน้าหลัก",
+    "move_shape": "เลื่อนรูปแบบ",
+    "move_position": "เปลี่ยนตำแหน่ง"
+}
