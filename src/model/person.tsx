@@ -1,3 +1,5 @@
+import { Timestamp } from "../types"
+
 export const Prefix = {
     mr: "mister_i18n",
     ms: "miss_i18n",
@@ -17,10 +19,11 @@ export enum GENDER {
 export type PrefixType = "mr" | "ms" | "mrs"
 
 export type PersonFormModel = {
+    id?: string
     prefix?: PrefixType
     first_name?: string
     last_name?: string
-    date_of_birth?: Date
+    date_of_birth?: Date | string
     nationality?: string
     national_id?: string
     gender?: GENDER

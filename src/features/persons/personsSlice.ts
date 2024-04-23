@@ -1,69 +1,76 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { format, parseISO } from "date-fns";
 
 import { GENDER, PersonFormModel, PrefixType } from "../../model/person";
 
-const initialState: PersonFormModel = {
-  prefix: undefined,
-  first_name: undefined,
-  last_name: undefined,
-  date_of_birth: undefined,
-  nationality: undefined,
-  national_id: undefined,
-  gender: undefined,
-  phone_number: undefined,
-  expected_salary: undefined,
+export interface PersonState {
+  persons: PersonFormModel[];
+  currentPerson?: PersonFormModel;
+}
+const initialState: PersonState = {
+  persons: [],
 };
+
 
 export const personSlice = createSlice({
   name: "person",
   initialState,
   reducers: {
-    setPrefix: (state, action: PayloadAction<PrefixType>) => {
-      state.prefix = action.payload;
+    submitPerson: (state, action: PayloadAction<PersonFormModel>) => {
+      state.persons.push(action.payload);
     },
-    setFirstName: (state, action: PayloadAction<string>) => {
-      state.first_name = action.payload;
+    editPerson: (
+      state,
+      action: PayloadAction<{ id: string; values: PersonFormModel }>
+    ) => {
+      const findIndex = state.persons.findIndex(
+        (i) => i.id == action.payload.id
+      );
+      if (findIndex > -1) state.persons[findIndex] = action.payload.values;
     },
-    setLastName: (state, action: PayloadAction<string>) => {
-      state.last_name = action.payload;
+    deletePerson: (state, action: PayloadAction<string>) => {
+      const findIndex = state.persons.findIndex((i) => i.id == action.payload);
+      if (findIndex > -1) state.persons.splice(findIndex, 1);
     },
-    setDOB: (state, action: PayloadAction<Date>) => {
-      state.date_of_birth = action.payload;
+    deleteSelect: (state, action: PayloadAction<string[]>) => {
+      action.payload.map((id: string) => {
+        const findIndex = state.persons.findIndex((i) => i.id == id);
+        if (findIndex > -1) state.persons.splice(findIndex, 1);
+      });
     },
-    setNationality: (state, action: PayloadAction<string>) => {
-      state.nationality = action.payload;
+    setCurrentPerson: (state, action: PayloadAction<string>) => {
+      const findPerson = state.persons.find((i) => i.id == action.payload);
+      const date = parseISO(String(findPerson?.date_of_birth))
+      console.log(date)
+      if (findPerson !== undefined) state.currentPerson = findPerson 
+      // {
+      //   id: findPerson.id,
+      //   date_of_birth: date,
+      //   prefix: findPerson.prefix,
+      //   first_name: findPerson.first_name,
+      //   last_name: findPerson.last_name,
+      //   nationality: findPerson.nationality,
+      //   national_id: findPerson.national_id,
+      //   gender: findPerson.gender,
+      //   passport_id: findPerson.passport_id,
+      //   expected_salary: findPerson.expected_salary
+      // };
     },
-    setnationalId: (state, action: PayloadAction<string>) => {
-      state.national_id = action.payload;
-    },
-    setGender: (state, action: PayloadAction<GENDER>) => {
-      state.gender = action.payload;
-    },
-    setPhoneNumber: (state, action: PayloadAction<string>) => {
-      state.phone_number = action.payload;
-    },
-    setPassportId: (state, action: PayloadAction<string>) => {
-      state.passport_id = action.payload;
-    },
-    setExpectedSalary: (state, action: PayloadAction<number>) => {
-      state.expected_salary = action.payload;
+    clearCurrentPerson: (state) => {
+      state.currentPerson = undefined;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
 export const {
-  setPrefix,
-  setFirstName,
-  setLastName,
-  setDOB,
-  setNationality,
-  setnationalId,
-  setGender,
-  setPhoneNumber,
-  setPassportId,
-  setExpectedSalary,
+  submitPerson,
+  editPerson,
+  deletePerson,
+  deleteSelect,
+  setCurrentPerson,
+  clearCurrentPerson,
 } = personSlice.actions;
 
 export default personSlice.reducer;

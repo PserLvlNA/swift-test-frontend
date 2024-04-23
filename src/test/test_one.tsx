@@ -54,18 +54,6 @@ function TestOne() {
   const [geoArray, setGeoArray] = useState<GEOMETRY[]>(defaultArray);
   const [arrayLayout, setArrayLayout] = useState<0 | 1>(0);
 
-  const person: PersonFormModel = {
-    prefix: undefined,
-    first_name: undefined,
-    last_name: undefined,
-    date_of_birth: undefined,
-    nationality: undefined,
-    national_id: undefined,
-    gender: undefined,
-    phone_number: undefined,
-    expected_salary: undefined,
-  };
-
   function render_geometry(name: string) {
     return (
       <Col span={7} key={name}>

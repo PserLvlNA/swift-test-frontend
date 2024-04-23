@@ -1,134 +1,146 @@
 .item_center {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    justify-content: center;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  justify-content: center;
 
-    /* min-width: 320px; */
-    width: 100%;
-    min-height: 70vh;
-    /* text-align: center; */
+  /* min-width: 320px; */
+  width: 100%;
+  min-height: 70vh;
+  /* text-align: center; */
 }
 
 .geo {
-
 }
 
 .up_triangle {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid #7b7b7b;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid #7b7b7b;
 }
 
 .down_triangle {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 100px solid #7b7b7b;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid #7b7b7b;
 }
 
 .left_triangle {
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-right: 100px solid #7b7b7b;
-    border-bottom: 50px solid transparent;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-right: 100px solid #7b7b7b;
+  border-bottom: 50px solid transparent;
 }
 
 .right_triangle {
-    width: 0;
-    height: 0;
-    border-top: 50px solid transparent;
-    border-left: 100px solid #7b7b7b;
-    border-bottom: 50px solid transparent;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-left: 100px solid #7b7b7b;
+  border-bottom: 50px solid transparent;
 }
 
 .circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #7b7b7b;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #7b7b7b;
 }
 
 .oval {
-    width: 200px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #7b7b7b;
+  width: 200px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #7b7b7b;
 }
 
 .trapezoid {
-    width: 200px;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid #7b7b7b;
+  width: 200px;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid #7b7b7b;
 }
 
 .parallelogram {
-    width: 200px;
-	height: 100px;
-	transform: skew(20deg);
-    /* border-left: 1px solid #7b7b7b;
+  width: 200px;
+  height: 100px;
+  transform: skew(20deg);
+  /* border-left: 1px solid #7b7b7b;
     border-bottom: 1px solid #7b7b7b; */
-    background: #7b7b7b;
+  background: #7b7b7b;
 }
 
 .square {
-    width: 100px;
-    height: 100px;
-    background-color: #7b7b7b;
+  width: 100px;
+  height: 100px;
+  background-color: #7b7b7b;
 }
 
 .rectangle {
-    width: 200px;
-    height: 100px;
-    background-color: #7b7b7b;
+  width: 200px;
+  height: 100px;
+  background-color: #7b7b7b;
 }
 
 .item_container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    /* width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  /* width: 100%; */
 }
 
 .button_card {
-    width: 100%;
+  width: 100%;
 }
 
 .button_card:hover {
-    background-color: #ffa200;
+  background-color: #ffa200;
 }
 .button_card:hover .geo {
-    background-color: #cccccc;
+  background-color: #cccccc;
 }
 
 .button_card:hover .trapezoid {
-    width: 200px;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid #cccccc;
-    background-color: transparent;
+  width: 200px;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid #cccccc;
+  background-color: transparent;
 }
 
-.button_card:active{
-    background-color: #6eda78;
+.button_card:active {
+  background-color: #6eda78;
 }
 
-.center_justify{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.center_justify {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.ant-tag{
-    margin-top: -10px;
-    background-color: #6eda78;
-    border-color: #6eda78;
-    color:#ffffff
+.horizontal_center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.ant-tag {
+  margin-top: -10px;
+  background-color: #6eda78;
+  border-color: #6eda78;
+  color: #ffffff;
+}
+
+.form_bordered {
+  border-style: solid;
+  border-width: 2px;
+  padding: 16px;
+  border-radius: 8px;
 }

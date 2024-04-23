@@ -3,7 +3,7 @@
 localhost:5173/test
 
 - Test 1 Completed
-- Test 2 Progress 50%
+- Test 2 Progress 90%
 
 # React + TypeScript + Vite
 
