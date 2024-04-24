@@ -19,11 +19,11 @@ export enum GENDER {
 export type PrefixType = "mr" | "ms" | "mrs"
 
 export type PersonFormModel = {
-    id?: string
+    id?: React.Key
     prefix?: PrefixType
     first_name?: string
     last_name?: string
-    date_of_birth?: Date | string
+    date_of_birth?: Timestamp
     nationality?: string
     national_id?: string
     gender?: GENDER

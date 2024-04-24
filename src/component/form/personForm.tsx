@@ -43,6 +43,8 @@ export function PersonForm(input?: PersonFormModel) {
   const persons = useSelector((state: PersonState) => state.persons);
   const current = useSelector((state: PersonState) => state.currentPerson);
 
+  const [selectPersons, setSelectPersons] = useState<PersonFormModel[]>([])
+
   const required = (value: any) => (value ? undefined : "Required");
   const mustBeNumber = (value: number) =>
     isNaN(value) ? "Must be a number" : undefined;
@@ -100,9 +102,15 @@ export function PersonForm(input?: PersonFormModel) {
         phone_number: values.phone_number,
       };
       //   console.log(JSON.stringify(submitValue));
-      dispatch(editPerson({ id: values.id, values: submitValue }));
+      dispatch(editPerson({ id: String(values.id), values: submitValue }));
       dispatch(clearCurrentPerson());
       form.restart();
+    }
+  }
+
+  function deleteSelectPerson() {
+    if(selectPersons.length > 0) {
+        dispatch(deleteSelect(selectPersons.map(item => String(item.id!))))
     }
   }
 
@@ -137,14 +145,14 @@ export function PersonForm(input?: PersonFormModel) {
         <Space>
           <a
             onClick={() => {
-              dispatch(setCurrentPerson(row.id!));
+              dispatch(setCurrentPerson(String(row.id!)));
             }}
           >
             Edit
           </a>
           <a
             onClick={() => {
-              dispatch(deletePerson(row.id!));
+              dispatch(deletePerson(String(row.id!)));
             }}
           >
             Delete
@@ -153,6 +161,13 @@ export function PersonForm(input?: PersonFormModel) {
       ),
     },
   ];
+
+  const rowSelection = {
+    onChange: (selectedRowKey: React.Key[], selectedRows: PersonFormModel[]) => {
+        console.log(selectedRowKey)
+        setSelectPersons(selectedRows)
+    }
+  }
 
   return (
     <>
@@ -398,12 +413,13 @@ export function PersonForm(input?: PersonFormModel) {
                   </Space>
                 </Col>
               </Row>
-              <pre>{JSON.stringify(values, undefined, 2)}</pre>
+              {/* <pre>{JSON.stringify(values, undefined, 2)}</pre> */}
             </Form>
           )}
         />
       </div>
-      <Table dataSource={persons} columns={columns} />
+      <Button onClick={() => deleteSelectPerson()}>ลบข้อมูล</Button>
+      <Table dataSource={persons} columns={columns} rowSelection={{ type:'checkbox', ...rowSelection}} rowKey={item => item.id!} />
     </>
   );
 }
